@@ -1,24 +1,19 @@
-README.md
-Kuriakose Sony Theakanath
+# lytro
 
-========
-OVERVIEW
-========
+Mimicking the Lytro camera effect by capturing multiple images over a plane orthogonal to the optical axis.
 
-To use the code run:
+## Background and Algorithm
 
+We use the paper by Ren Ng of Stanford University (the founder of the Lytro camera and professor at Berkeley) [http://graphics.stanford.edu/papers/lfcamera/lfcamera-150dpi.pdf]. In this he describes the method of autofocusing to certain aspects of the image. The basic idea is that we can refocus to certain parts of an image by shifting an array of images (that are slightly shifted in an axis), by a predefined amount. As this amount changes, we can shift to a different part of an image. This is the basic idea of Lytro. They take several images at the same time, shifting each by a certain amount.
+
+## Running Code
+
+Note that there is no sample data as it takes around 1 GB of data. To access it view the Stanford Light Field Archive: http://lightfield.stanford.edu/lfs.html 
+
+To run the code just run 
+```
 python main.py
-
+```
 With a size.png image on the same folder as main.py and a rectefied folder in the same directory as main.py.
 
-To adjust the parameters, scroll to the bottom of the main.py and then uncomment the code as follows. Then add in the paramters as needed. 
-
-===================
-EXPLANATION OF CODE
-===================
-
-There's two functions:
-
-depthRefocusing(path, SCALE). This takes in two parameters, the path which is the pictures to combine and then the SCALE. SCALE is the amount to shift the images. To test this out please put a number between -2 and 4. This would focus the image on different parts of the screen. In this function it iteretes through the contents of the folder and then calculates the shift. From that it averages the images based on the shift and moves the current image accordingly. The saved image is in the same folder as main.py
-
-aperture(path, num). Takes in two parameters. Path just like depthRefocusing and num, the number of images to average. This function is simple, it takes all of the images in the folder and the averages them, saving the image in the root directory as main.py
+To adjust the parameters, scroll to the bottom of the main.py and then uncomment the code as follows. Add in the paramters as needed. 
